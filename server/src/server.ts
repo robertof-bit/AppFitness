@@ -1,6 +1,8 @@
 import express from 'express'
 import cors from 'cors'
 import pool from './database'
+import { createUser, getUser, updateUser, deleteUser } from './controllers/usersController'
+
 
 const app = express()
 const PORT = 3000
@@ -17,6 +19,17 @@ app.get('/health', async (req, res) => {
     })
 })
 
+app.post('/users', createUser)
+
+app.get('/users/:id', getUser)
+
+app.put('/users/:id', updateUser)
+
+app.delete('/users/:id', deleteUser)
+
+
+
 app.listen(PORT, () => {
     console.log(`Servidor rodando na porta ${PORT}`)
 })
+
