@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'
 
 
 function Cadastro() {
@@ -6,6 +7,8 @@ function Cadastro() {
   const [nome, setNome] = useState ('');
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
+
+  const navigate = useNavigate()
 
 
 const fazerCadastro = async () => {
@@ -18,8 +21,9 @@ const fazerCadastro = async () => {
   const dados = await resposta.json()
   
   if (dados.id) {
-    localStorage.setItem('token', dados.token)
+
     alert('Cadastro realizado com sucesso!')
+    navigate('/login')
   }
   else{
     alert('Erro ao cadastrar!')

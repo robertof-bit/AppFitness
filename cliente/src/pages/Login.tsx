@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-
+import { useNavigate } from 'react-router-dom'
 
 function Login() {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
+
+  const navigate = useNavigate()
 
 
 const fazerLogin = async () => {
@@ -18,6 +20,7 @@ const fazerLogin = async () => {
   if (dados.token) {
     localStorage.setItem('token', dados.token)
     alert('Login realizado com sucesso!')
+    navigate('/dashboard')
   }
   else{
     alert(dados.mensagem)
