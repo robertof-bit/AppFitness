@@ -22,19 +22,19 @@ app.get('/health', async (req, res) => {
 
 //CRUD - Informações
 
-app.post('/users', createUser)
+app.post('/usuarios', createUser)
 
-app.get('/users/:id', getUser)
+app.get('/usuarios/:id', getUser)
 
-app.put('/users/:id', updateUser)
+app.put('/usuarios/:id', updateUser)
 
-app.delete('/users/:id', deleteUser)
+app.delete('/usuarios/:id', deleteUser)
 
 //Autenticação JWT
 
 app.post('/auth/register', register)
 
-app.post ('/auth/login', login)
+app.post('/auth/login', login)
 
 
 // PORTA
